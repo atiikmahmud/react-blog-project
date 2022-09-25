@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar{
+    min-height: calc(100vh - 62px);
+}
+
+.menu-list-item li{
+    list-style: none;
+    text-decoration: none;
+    margin-top: 30px;  
+}
+
+.links{
+    text-decoration: none;
+    color: black;
+}
+
+.card-body{
+    max-height: calc(100vh - 165px);
+}
+
+.users-list-table{
+    max-height: calc(100vh - 180px);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.table{
+    vertical-align: middle;
+}
+
+.link-style{
+    margin-right: 5px;
+}
+
+.user-image-style{
+    height: 40px;
+    width: 40px;
+}
