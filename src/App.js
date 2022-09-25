@@ -19,6 +19,8 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import AdminRoute from './components/AdminRoute';
 import EditUser from './pages/admin/EditUser';
+import SinglePost from './pages/SinglePost';
+import UserPost from './pages/admin/UserPost'
 
 export default function App() {
   return (
@@ -26,14 +28,16 @@ export default function App() {
       <Routes>
         <Route path='/' element={ <Layouts/> }>
           <Route path='/' element={ <Home/> } />
-          <Route path='/profile/:id' element={ <PrivateRoute><Profile/></PrivateRoute> }/>
+          <Route path='/profile' element={ <PrivateRoute><Profile/></PrivateRoute> }/>
           <Route path='/about' element={ <About/> }/>
           <Route path='/contact' element={ <Contact/> }/>
           <Route path='/add-post' element={ <PrivateRoute><AddPost/></PrivateRoute> }/>
           <Route path='/posts' element={ <PrivateRoute><Posts/></PrivateRoute> }/>
           <Route path='/blog' element={ <Blog/> }/>
+          <Route path='/blog/post/:id' element={ <PrivateRoute><SinglePost/></PrivateRoute> }/>
           <Route path='/dashboard' element={ <AdminRoute><Dashboard/></AdminRoute> }/>
           <Route path='/users' element={ <AdminRoute><Users/></AdminRoute> }/>
+          <Route path='/users/post/:id' element={ <AdminRoute><UserPost/></AdminRoute> }/>
           <Route path='/edit-user/:id' element={ <AdminRoute><EditUser/></AdminRoute> }/>
           <Route path='/all-posts' element={ <AdminRoute><AllPosts/></AdminRoute> }/>
         </Route>

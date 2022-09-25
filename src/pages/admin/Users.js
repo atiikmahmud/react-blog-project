@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 export default function Users() {
   
-  const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([])
 
     useEffect(()=>{
       fetchUsers() 
@@ -92,7 +92,7 @@ export default function Users() {
                               <td>{row.role === '1' ? (<span class="badge text-bg-danger">Admin</span>) : (<span class="badge text-bg-warning">User</span>) }</td>
                               <td><span class="badge text-bg-success">Active</span></td>
                               <td>
-                                <Link to="#" className='btn btn-sm btn-primary link-style'>Posts</Link>
+                                <Link to={`/users/post/${row.id}`} className='btn btn-sm btn-primary link-style'>Posts</Link>
                                 <Link to={`/edit-user/${row.id}`} className='btn btn-sm btn-success link-style'>Edit</Link>
                                 <Link onClick={()=>deleteUser(row.id)} className='btn btn-sm btn-danger'>Delete</Link>
                               </td>

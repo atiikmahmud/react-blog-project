@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
-import AuthUser from '../components/AuthUser';
 
 export default function Posts() {
   
-  const {user} = AuthUser();
+  const params = useParams();
   
   const [posts, setPosts] = useState([])
 
@@ -14,7 +13,7 @@ export default function Posts() {
     },[])
 
     const fetchUsers = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/posts/user/${user.id}`).then(({data})=>{
+        await axios.get(`http://127.0.0.1:8000/api/posts/user/${params.id}`).then(({data})=>{
           setPosts(data)
         })
     }  

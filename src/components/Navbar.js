@@ -38,7 +38,7 @@ export default function Navbar() {
                                 <img src={`http://localhost:8000/storage/user/image/${user.image}`} alt="" className='border border-dark rounded-circle' style={{ height: "30px" }} /> {user.name}
                             </Link>
                             <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to={`/profile/${user.id}`}>Profile</Link></li>
+                                <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
                                 {user.role === '1' ? (
                                 <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
                                 ):(

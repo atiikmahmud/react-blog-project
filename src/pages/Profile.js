@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthUser from '../components/AuthUser';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -9,7 +9,6 @@ export default function Profile() {
 
     const navigate = useNavigate();
 
-    const { id } = useParams()
     // const [user,setUser] = useState(AuthUser());
     const [name, setName] = useState("")
     const [role, setRole] = useState("")
@@ -23,7 +22,7 @@ export default function Profile() {
     },[])
 
     const fetchUser = async () => {
-        await axios.get(`http://localhost:8000/api/users/${id}`).then(({data})=>{
+        await axios.get(`http://localhost:8000/api/users/${user.id}`).then(({data})=>{
             const { name,email,role,image } = data.user
             setName(name)
             setEmail(email)
@@ -57,7 +56,7 @@ export default function Profile() {
             formData.append('image', image)
           }
     
-        await axios.post(`http://localhost:8000/api/users/${id}`, formData).then(({data})=>{
+        await axios.post(`http://localhost:8000/api/users/${user.id}`, formData).then(({data})=>{
           Swal.fire({
             icon:"success",
             text:data.message
