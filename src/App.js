@@ -34,7 +34,7 @@ export default function App() {
           <Route path='/add-post' element={ <PrivateRoute><AddPost/></PrivateRoute> }/>
           <Route path='/posts' element={ <PrivateRoute><Posts/></PrivateRoute> }/>
           <Route path='/blog' element={ <Blog/> }/>
-          <Route path='/blog/post/:id' element={ <PrivateRoute><SinglePost/></PrivateRoute> }/>
+          <Route path='/blog/post/:id' element={ <SinglePost/> }/>
           <Route path='/dashboard' element={ <AdminRoute><Dashboard/></AdminRoute> }/>
           <Route path='/users' element={ <AdminRoute><Users/></AdminRoute> }/>
           <Route path='/users/post/:id' element={ <AdminRoute><UserPost/></AdminRoute> }/>

@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import '../css/singlepost.css'
+import AuthUser from '../components/AuthUser';
+import Comment from '../components/Comment';
 
 export default function SinglePost() {
     
     const params = useParams();
+    const {user} = AuthUser();
 
     const [data, setData] = useState(null);
 
@@ -40,30 +43,18 @@ export default function SinglePost() {
                                     Comments
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="comments mt-4 d-flex">
-                                            <div className="comment-user-img">
-                                                <img src="https://templates.joomla-monster.com/joomla30/jm-news-portal/components/com_djclassifieds/assets/images/default_profile.png" alt="" className='border rounded-circle d-inline' style={{ height: "40px", width: "40px" }}/>
+                                    
+                                    <Comment id={params.id} /> 
+                                    
+                                    <div className="col-md-6">                                 
+                                        {user ? (
+                                            <div className="comment-box pt-3" style={{ marginLeft: "50px" }}>
+                                                <textarea name="comment" id="" cols="30" rows="3" className='form-control'></textarea>
+                                                <button className='btn btn-sm btn-primary mt-2'>Comment</button>
                                             </div>
-                                            <div className="comment-details bg-light border rounded p-2" style={{ marginLeft: "10px" }}>
-                                                <strong>Atik Mahmud</strong>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div className="comments my-4 d-flex">
-                                            <div className="comment-user-img">
-                                                <img src="https://templates.joomla-monster.com/joomla30/jm-news-portal/components/com_djclassifieds/assets/images/default_profile.png" alt="" className='border rounded-circle d-inline' style={{ height: "40px", width: "40px" }}/>
-                                            </div>
-                                            <div className="comment-details bg-light border rounded p-2" style={{ marginLeft: "10px" }}>
-                                                <strong>SM Sejan</strong>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                        <div className="comment-box" style={{ marginLeft: "50px" }}>
-                                            <textarea name="comment" id="" cols="30" rows="3" className='form-control'></textarea>
-                                            <button className='btn btn-sm btn-primary mt-2'>Comment</button>
-                                        </div>
+                                        ):(
+                                            <p className='pt-3'>* If you login here, you can comment in this post.</p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
