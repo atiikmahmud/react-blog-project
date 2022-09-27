@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from 'react'
-
 export default function Comment(props) {
     
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/comment/${props.id}`)
-          .then((res) => res.json())
-          .then((data) => setData(data));
-      }, []);
+    const data  = props.comments;
   
     return ( 
     <>
