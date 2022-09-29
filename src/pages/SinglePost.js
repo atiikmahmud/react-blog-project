@@ -24,7 +24,7 @@ export default function SinglePost() {
     const [comment, setComment] = useState("")
     const [comments, setComments] = useState([])
     const post_id = params.id
-    const user_id = user.id
+    const user_id = user?.id
     const [validationError, setValidationError] = useState({})
 
     const getComments = () => {
